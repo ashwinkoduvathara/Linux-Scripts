@@ -83,7 +83,7 @@ bash vmware.bundle
 echo -e "\e[1;32m VMware Installed Successfully  \e[0m" #green
 
 echo -e "\e[0;36m Installing Cisco Packet Tracer \e[0m" #cyan
-apt install ./cpt.deb
+apt install -y ./cpt.deb
 echo -e "\e[1;32m Cisco Packet Tracer Installed Successfully  \e[0m" #green
 
 echo -e "\e[0;36m Installing Brave browser \e[0m" #cyan
