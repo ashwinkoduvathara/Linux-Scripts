@@ -12,5 +12,7 @@ do
        echo password of $user is $password >>~/Downloads/user_key.txt
        echo -e "$password\n$password" | passwd $user
        usermod -aG sudo $user
+       ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
+       ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
 
 done
