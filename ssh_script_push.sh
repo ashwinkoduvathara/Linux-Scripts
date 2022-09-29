@@ -18,9 +18,26 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 user="root"
-host="192.168.100.212" 
+declare -a host= ("192.168.100.212" "192.168.100.213")
 
-script_path="mkdir -p hello"
+script_path=""
+
+
+
+for client in "${client_machine[@]}"
+do
+
+ssh -l $user $host 'bash -s' < $script_path
+
+done
+
+
+
+
+
+
+
+
 #ssh-keygen and store in Downloads
 #ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
 #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
