@@ -26,14 +26,16 @@ script_path=""
 
 for client in "${client_machine[@]}"
 do
+ssh-keygen -t rsa -b 4096  -P "" -f "~/.ssh/Mrx" -q 
+sshpass -p "remote-user-password" scp filename user@remotehost:/dir/path/
+#ssh-copy-id -i ~/.ssh/Mrx.pub $root@$client
 
-ssh -l $user $host 'bash -s' < $script_path
 
 done
 
 
 
-
+ssh -l $user $host 'bash -s' < $script_path
 
 
 
