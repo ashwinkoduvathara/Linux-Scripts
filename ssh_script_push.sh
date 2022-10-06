@@ -37,7 +37,7 @@ done
 
 
 
-
+#sudo apt-get install sshpass
 #ssh-keygen and store in Downloads
 #ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
 #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
