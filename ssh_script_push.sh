@@ -83,5 +83,5 @@ ssh -l $user $host 'bash -s' < $script_path
 #ssh-keygen and store in Downloads
 #ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
 #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
-
+#curl --insecure --user root:asd123. -T /root/ip.txt  sftp://192.168.100.213/root/
 ssh -l $user $host 'bash -s' < $script_path
