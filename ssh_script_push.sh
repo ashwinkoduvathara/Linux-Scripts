@@ -17,6 +17,38 @@ if [[ $EUID -ne 0 ]]; then
    exit 1
 fi
 
+
+#finding the package manager
+declare -A osInfo;
+osInfo[/etc/redhat-release]=yum
+osInfo[/etc/arch-release]=pacman
+osInfo[/etc/gentoo-release]=emerge
+osInfo[/etc/SuSE-release]=zypp
+osInfo[/etc/debian_version]=apt-get
+osInfo[/etc/alpine-release]=apk
+
+for f in ${!osInfo[@]}
+do
+    if [[ -f $f ]];then
+        Package_manager=${osInfo[$f]}
+        
+       
+    fi
+done
+
+if [[ $Package_manager -eq "yum" ]]; then
+   $Package_manager install sshpass -y
+
+   
+fi
+
+if [[ $Package_manager -eq "apt-get" ]]; then
+   $Package_manager install sshpass -y
+
+   
+fi
+
+
 user="root"
 declare -a host= ("192.168.100.212" "192.168.100.213")
 
@@ -43,7 +75,3 @@ done
 #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
 
 ssh -l $user $host 'bash -s' < $script_path
-
-#if [ -z "$port" ]; then
-#        read -p 'Please enter  port number (press enter for 8080): ' port
-#fi
