@@ -64,16 +64,17 @@ script_path=""
 #do
 
 
-#sshpass -p "asd123." ssh $user $host
+for client in "${client_machine[@]}"
+do
 
-curl --insecure --user $user:$password -T /root/ip.txt  sftp://$host/root/     #working         
+ssh -l $user $host 'bash -s' < $script_path
 
 #ssh -l $user $host 'bash -s' < $script_path
 
 #done
 
 
-
+ssh -l $user $host 'bash -s' < $script_path
 
 
 
