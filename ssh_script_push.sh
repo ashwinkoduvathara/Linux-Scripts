@@ -55,47 +55,47 @@ do
     fi
 done
 
-#--------------------------------------------------------------------tested upto here
+
 if [ -z "$ip_addresses" ]; then
    read -p "Please enter the Network_id  : " Network_id
    read -p "Please enter the Broadcast_id  : " Broadcast_id
    mkdir -p /var/MrX
-   fping -a $Network_id $Broadcast_id > /var/MrX/ip.txt
+   fping -asg $Network_id $Broadcast_id > /var/MrX/ip.txt
 fi
 
+#--------------------------------------------------------------------tested upto here
 
 
 
 
 
 
+# declare -a host= ("192.168.100.212" "192.168.100.213")
+# script_path=""
 
-declare -a host= ("192.168.100.212" "192.168.100.213")
-script_path=""
-
-#for client in "${client_machine[@]}"
-#do
-
-
-for client in "${client_machine[@]}"
-do
-
-ssh -l $user $host 'bash -s' < $script_path
-
-#ssh -l $user $host 'bash -s' < $script_path
-
-#done
+# #for client in "${client_machine[@]}"
+# #do
 
 
-ssh -l $user $host 'bash -s' < $script_path
+# for client in "${client_machine[@]}"
+# do
 
+# ssh -l $user $host 'bash -s' < $script_path
+
+# #ssh -l $user $host 'bash -s' < $script_path
+
+# #done
+
+
+# ssh -l $user $host 'bash -s' < $script_path
 
 
 
-#sudo apt-get install sshpass
-#ssh-keygen and store in Downloads
-#ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
-#ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
-#
-curl --insecure --user root:asd123. -T /root/ip.txt  sftp://192.168.100.213/root/
-ssh -l $user $host 'bash -s' < $script_path
+
+# #sudo apt-get install sshpass
+# #ssh-keygen and store in Downloads
+# #ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
+# #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
+# #
+# curl --insecure --user root:asd123. -T /root/ip.txt  sftp://192.168.100.213/root/
+# ssh -l $user $host 'bash -s' < $script_path
