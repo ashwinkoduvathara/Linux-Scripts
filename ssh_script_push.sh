@@ -61,7 +61,7 @@ if [ -z "$ip_addresses" ]; then
    read -p "Please enter the Broadcast_id  : " Broadcast_id
    mkdir -p /var/MrX
    echo -e "$alert Scanning Network... $nocolour" 
-   fping -ag $Network_id $Broadcast_id > /var/MrX/ip.txt
+   fping -aqg $Network_id $Broadcast_id > /var/MrX/ip.txt
    host_file=/var/MrX/ip.txt
    if [[ -f "$host_file" ]]; then
      echo -e "$success Network scanned successfully.. $nocolour"
