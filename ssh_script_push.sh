@@ -60,8 +60,58 @@ if [ -z "$ip_addresses" ]; then
    read -p "Please enter the Network_id  : " Network_id
    read -p "Please enter the Broadcast_id  : " Broadcast_id
    mkdir -p /var/MrX
-   fping -asg $Network_id $Broadcast_id > /var/MrX/ip.txt
+   echo -e "$alert Scanning Network... $nocolour" 
+   fping -ag $Network_id $Broadcast_id > /var/MrX/ip.txt
+   host_file=/var/MrX/ip.txt
+   if [[ -f "$host_file" ]]; then
+     echo -e "$success Network scanned successfully.. $nocolour"
+     else
+     echo -e " $error Network scan failed $nocolour" 
+   fi
+   
 fi
+
+
+
+
+
+if [ -z "$key" ]; then
+   echo -e "$alert Generating Key.. $nocolour"
+   mkdir -p /var/MrX/key
+   ssh-keygen -t rsa -b 4096  -P "" -f "/var/MrX/key/Mrx" -q 
+   key_file=/var/MrX/key/Mrx
+   if [[ -f "$key_file" ]]; then
+     echo -e "$success Secret key generated Successfully $nocolour"
+     else
+     echo -e " $error failed to create key file $nocolour" 
+   fi
+ 
+fi
+
+
+
+if [ -z "$ssh_key" ]; then
+    host_ip=$(cat $host_file )
+    for host in $host_ip
+    do
+    sshpass -p $password ssh -l $user $host 
+    done
+
+
+fi
+
+
+
+
+#
+#for host in "{$host_ip[@]}"
+# 
+# echo $username'@'$host
+# 
+
+#  mkdir -p /var/MrX/scripts
+   
+
 
 #--------------------------------------------------------------------tested upto here
 
@@ -70,21 +120,8 @@ fi
 
 
 
-# declare -a host= ("192.168.100.212" "192.168.100.213")
-# script_path=""
-
-# #for client in "${client_machine[@]}"
-# #do
 
 
-# for client in "${client_machine[@]}"
-# do
-
-# ssh -l $user $host 'bash -s' < $script_path
-
-# #ssh -l $user $host 'bash -s' < $script_path
-
-# #done
 
 
 # ssh -l $user $host 'bash -s' < $script_path
