@@ -19,18 +19,33 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 
-echo -e "$warning powered by $nocolour ";
+echo "Hey, wait for a  seconds..."
+sleep 5  
+echo "all Done."
 
-echo -e "$success----    ----   --------   ----------   ----    ---- $nocolour ";
-echo -e "$success****   ****   **********  ************ ****    **** $nocolour ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+
+
+echo -e "$warning                                         powered by $nocolour ";
+
+echo -e "$success----    ----   --------   ----------   ----    ---- $nocolour";
+echo -e "$success****   ****   **********  ************ ****    **** $nocolour";
 echo -e "$success----  ----   ----    ---- --        -- ----    ---- $nocolour";
 echo -e "$success*********    ***      *** **        ** ****    **** $nocolour";
 echo -e "$success---------    ---      --- --        -- ----    ---- $nocolour";
 echo -e "$success****  ****   ****    **** **        ** ************ $nocolour";
 echo -e "$success----   ----   ----------  ------------ ------------ $nocolour";
 echo -e "$success****    ****   ********   **********   ************ $nocolour";
-echo -e "                                                            $nocolour";
-
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
 
 
 
