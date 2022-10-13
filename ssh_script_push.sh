@@ -13,6 +13,7 @@ user="synnefo"
 password="asd123."
 
 
+
 key_gen(){
 
       echo -e "$alert Generating Key.. $nocolour"
@@ -28,12 +29,6 @@ key_gen(){
 
   
 }
-
-
-
-
-
-
 
 
 
@@ -96,11 +91,14 @@ done
 
 
 if [ -z "$ip_addresses" ]; then
-   read -p "Please enter the Network_id  : " Network_id
-   read -p "Please enter the Broadcast_id  : " Broadcast_id
+   #read -p "Please enter the Network_id  : " Network_id
+   #read -p "Please enter the Broadcast_id  : " Broadcast_id
+   
    mkdir -p /var/MrX
    echo -e "$alert Scanning Network... $nocolour" 
-   fping -aqg $Network_id $Broadcast_id > /var/MrX/ip.txt
+   arp-scan --localnet --quiet --ignoredups | gawk '/([a-f0-9]{2}:){5}[a-f0-9]{2}/ {print $1}'>/var/MrX/ip.txt
+   #fping -aqg $Network_id $Broadcast_id > /var/MrX/ip.txt
+   sed -i '1d' /var/MrX/ip.txt
    host_file=/var/MrX/ip.txt
    if [[ -f "$host_file" ]]; then
      echo -e "$success Network scanned successfully.. $nocolour"
