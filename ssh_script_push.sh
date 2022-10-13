@@ -9,7 +9,7 @@ success="\033[1;32m"
 warning="\033[1;33m"
 error="\033[1;31m"
 nocolour="\033[00m"
-user="root"
+user="synnefo"
 password="asd123."
 
 
@@ -109,7 +109,7 @@ if [ -z "$ssh_key" ]; then
     host_ip=$(cat $host_file )
     for host in $host_ip
     do
-    sshpass -p $password ssh -l $user $host 
+    sshpass -p $password ssh -l $user'@'$host 
     done
 
 
