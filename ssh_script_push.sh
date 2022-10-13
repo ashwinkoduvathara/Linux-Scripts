@@ -13,6 +13,30 @@ user="synnefo"
 password="asd123."
 
 
+key_gen(){
+
+      echo -e "$alert Generating Key.. $nocolour"
+      mkdir -p /var/MrX/key
+      
+      ssh-keygen -t rsa -b 4096  -P "" -f "/var/MrX/key/Mrx" -q 
+      key_file=/var/MrX/key/Mrx
+      if [[ -f "$key_file" ]]; then
+        echo -e "$success Secret key generated Successfully $nocolour"
+        else
+        echo -e " $error failed to create key file $nocolour" 
+      fi
+
+  
+}
+
+
+
+
+
+
+
+
+
 if [[ $EUID -ne 0 ]]; then
    echo -e " $error This script must be run as root $nocolour "
    exit 1
@@ -90,64 +114,39 @@ fi
 
 
 
-if [ -z "$key" ]; then
-   echo -e "$alert Generating Key.. $nocolour"
-   mkdir -p /var/MrX/key
-   ssh-keygen -t rsa -b 4096  -P "" -f "/var/MrX/key/Mrx" -q 
-   key_file=/var/MrX/key/Mrx
-   if [[ -f "$key_file" ]]; then
-     echo -e "$success Secret key generated Successfully $nocolour"
-     else
-     echo -e " $error failed to create key file $nocolour" 
-   fi
- 
+if [ -d /var/MrX/key ]; then
+  
+  echo -e "$alert Key file exist.. $nocolour"
+  read -p ' Would you like to create a new key file [y/n]: ' $answer
+
+    if [ "$answer" = 'y' ]; then
+       
+         key_gen 
+
+    else 
+
+    echo -e  " $success using the existing key file  $nocolour"
+
+    fi
+
+
+else
+     key_gen 
 fi
 
 
 
 if [ -z "$ssh_key" ]; then
-    host_ip=$(cat $host_file )
-    for host in $host_ip
+    host_alive=$(cat $host_file )
+    for host_ip in $host_alive
     do
-    sshpass -p $password ssh -l $user'@'$host 
+    sshpass -p $password ssh-copy-id -i $key_file.pub $user@$host_ip -f
+    
     done
-
+    
 
 fi
+ echo -e $success adios amigo $nocolour
+sleep 2
+clear
 
-
-
-
-#
-#for host in "{$host_ip[@]}"
-# 
-# echo $username'@'$host
-# 
-
-#  mkdir -p /var/MrX/scripts
-   
-
-
-#--------------------------------------------------------------------tested upto here
-
-
-
-
-
-
-
-
-
-
-# ssh -l $user $host 'bash -s' < $script_path
-
-
-
-
-# #sudo apt-get install sshpass
-# #ssh-keygen and store in Downloads
-# #ssh-keygen -t rsa -b 4096  -P "" -f "~/Downloads/$user" -q 
-# #ssh-copy-id -i ~/Downloads/$user.pub $user@localhost -p $password
-# #
-# curl --insecure --user root:asd123. -T /root/ip.txt  sftp://192.168.100.213/root/
-# ssh -l $user $host 'bash -s' < $script_path
