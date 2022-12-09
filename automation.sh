@@ -53,6 +53,30 @@ fi
 
 
 
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+
+
+echo -e "$warning                                         powered by $nocolour ";
+
+echo -e "$success----    ----   --------   ----------   ----    ---- $nocolour";
+echo -e "$success****   ****   **********  ************ ****    **** $nocolour";
+echo -e "$success----  ----   ----    ---- --        -- ----    ---- $nocolour";
+echo -e "$success*********    ***      *** **        ** ****    **** $nocolour";
+echo -e "$success---------    ---      --- --        -- ----    ---- $nocolour";
+echo -e "$success****  ****   ****    **** **        ** ************ $nocolour";
+echo -e "$success----   ----   ----------  ------------ ------------ $nocolour";
+echo -e "$success****    ****   ********   **********   ************ $nocolour";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+echo -e "                                                                     ";
+
 
 
 
