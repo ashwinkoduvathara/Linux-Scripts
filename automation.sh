@@ -144,10 +144,10 @@ timedatectl set-timezone $zone
 
 
 
-wget http://192.168.100.201/publickey.pub
+wget http://192.168.100.201/ansible-key.pub
 
 
-if [[ -f "publickey.pub" ]]; then
+if [[ -f "ansible-key.pub" ]]; then
     echo -e "$alert Setting Up Public Key  $nocolour "
     mkdir -p ~/.ssh/
     mv publickey.pub ~/.ssh/publickey.pub 
@@ -275,7 +275,7 @@ echo -e "$success Anydesk Installed Successfully  $nocolour"
 
 
 echo -e "$alert Installing VMware $nocolour" 
-wget http://192.168.100.201/vmware.bundle
+wget http://192.168.100.201/workstation.bundle
 bash vmware.bundle 
 echo -e "$success VMware Installed Successfully  $nocolour" 
 
