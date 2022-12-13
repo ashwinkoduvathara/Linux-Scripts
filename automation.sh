@@ -97,11 +97,12 @@ echo -e "                                                                     ";
 #----------------------------------------------------------#
 
 # test from here----
-
-read -p "$alert Do you want to change the hostname [y/n] $nocolour: " interactive_host
+echo -e "$alert Do you want to change the hostname [y/n] $nocolour: " 
+read interactive_host
 
 if [ "$interactive_host" = 'y' ]; then
-    read -p "$alert Please enter the hostname $nocolour: " servername
+    echo -e "$alert Please enter the hostname $nocolour: " 
+    read servername
     hostnamectl set-hostname $servername
     sed -i "s/$cur_hostname/$servername/g" /etc/hosts
     sed -i "s/$cur_hostname/$servername/g" /etc/hostname
@@ -109,16 +110,17 @@ if [ "$interactive_host" = 'y' ]; then
 
 fi
 
-
-read -p "$alert Do you want to set static ip address [y/n] $nocolour: " interactive_ip
+echo -e "$alert Do you want to set static ip address [y/n] $nocolour : "
+read interactive_ip
 
 if [ "$interactive_ip" = 'y' ]; then
         if [ -z "$new_ip" ]; then
-
-            read -p "$alert Please enter the ip address $nocolour: " new_ip
+            echo -e "$alert Please enter the ip address $nocolour: "
+            read new_ip
             while ! check_valid_ip "$new_ip"
             do
-                read -p "$error Not an valid IP address. Please Re-enter $nocolour: " new_ip
+                echo -e "$error Not an valid IP address. Please Re-enter $nocolour: "
+                read new_ip
             done
             nmcli connection add con-name $conn_name ifname $iface type ethernet ipv4.method manual ipv4.addresses $new_ip/$subnet_mask ipv4.gateway $gateway ipv4.dns $dns
 
@@ -150,7 +152,7 @@ wget http://192.168.100.201/ansible-key.pub
 if [[ -f "ansible-key.pub" ]]; then
     echo -e "$alert Setting Up Public Key  $nocolour "
     mkdir -p ~/.ssh/
-    mv publickey.pub ~/.ssh/publickey.pub 
+    mv ansible-key.pub ~/.ssh/ansible-key.pub
      echo -e "$success public key installed successfully   $nocolour "
 else
 echo -e " $error  failed to fetch Public Key $nocolour "
@@ -267,6 +269,11 @@ echo -e "$alert System Updating Repository $nocolour"
 apt update -y
 echo -e "$success Updated Successfully  $nocolour" 
 
+
+
+echo -e "$alert Installing Openssh  $nocolour" 
+apt install openssh-server openssh-client -y
+echo -e "$success Openssh Installed Successfully  $nocolour" 
 
 echo -e "$alert Installing Rustdesk $nocolour" 
 wget http://192.168.100.201/rustdesk.deb
