@@ -146,18 +146,6 @@ timedatectl set-timezone $zone
 
 
 
-wget http://192.168.100.201/ansible-key.pub
-
-
-if [[ -f "ansible-key.pub" ]]; then
-    echo -e "$alert Setting Up Public Key  $nocolour "
-    mkdir -p ~/.ssh/
-    mv ansible-key.pub ~/.ssh/ansible-key.pub
-     echo -e "$success public key installed successfully   $nocolour "
-else
-echo -e " $error  failed to fetch Public Key $nocolour "
-fi
-
 
 
 
@@ -269,11 +257,31 @@ echo -e "$alert System Updating Repository $nocolour"
 apt update -y
 echo -e "$success Updated Successfully  $nocolour" 
 
+# ----------------------------- ssh
+
+if ! which ssh > /dev/null; then
+
+    echo -e "$alert Installing Openssh  $nocolour" 
+    apt install openssh-server openssh-client -y
+    echo -e "$success Openssh Installed Successfully  $nocolour" 
+
+    wget http://192.168.100.201/ansible-key.pub
 
 
-echo -e "$alert Installing Openssh  $nocolour" 
-apt install openssh-server openssh-client -y
-echo -e "$success Openssh Installed Successfully  $nocolour" 
+    if [[ -f "ansible-key.pub" ]]; then
+        echo -e "$alert Setting Up Public Key  $nocolour "
+        mkdir -p ~/.ssh/
+        mv ansible-key.pub ~/.ssh/ansible-key.pub
+        echo -e "$success public key installed successfully   $nocolour "
+    else
+        echo -e " $error  failed to fetch Public Key $nocolour "
+    fi
+
+
+fi
+# -----------------------------ends here
+
+
 
 echo -e "$alert Installing Rustdesk $nocolour" 
 wget http://192.168.100.201/rustdesk.deb
@@ -281,15 +289,25 @@ apt install ./rustdesk.deb -y
 echo -e "$success Anydesk Installed Successfully  $nocolour" 
 
 
+
+
+
 echo -e "$alert Installing VMware $nocolour" 
 wget http://192.168.100.201/workstation.bundle
 bash vmware.bundle 
 echo -e "$success VMware Installed Successfully  $nocolour" 
 
+
+
+
 echo -e "$alert Installing Cisco Packet Tracer $nocolour" 
 http://192.168.100.201/cpt.deb 
 apt install -y ./cpt.deb
 echo -e "$success Cisco Packet Tracer Installed Successfully  $nocolour" 
+
+
+
+
 
 echo -e "$alert Installing Brave browser $nocolour" 
 apt install -y brave-browser
