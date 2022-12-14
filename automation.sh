@@ -323,7 +323,7 @@ echo -e "$success Removed firefox Successfully  $nocolour"
 
 ENDTIME=$(date +%s)
 echo -e "$success Script executed successfully. Time Elapsed $(($ENDTIME - $STARTTIME)) seconds $nocolour"
-echo -e $success adios amigo $nocolour
+echo -e "$success adios amigo $nocolour"
 sleep 2
 
 rm -f $Script_path/automation.sh

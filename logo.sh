@@ -1,0 +1,12 @@
+echo -e " $error    ██████ ▓██   ██▓ ███▄    █  ███▄    █ ▓█████   █████▒ ▒█████    $nocolour"
+echo -e " $error ▒██    ▒  ▒██  ██▒ ██ ▀█   █  ██ ▀█   █ ▓█   ▀ ▓██   ▒ ▒██▒  ██▒   $nocolour"
+echo -e " $error ░ ▓██▄     ▒██ ██░▓██  ▀█ ██▒▓██  ▀█ ██▒▒███   ▒████ ░ ▒██░  ██▒   $nocolour"
+echo -e " $error   ▒   ██▒  ░ ▐██▓░▓██▒  ▐▌██▒▓██▒  ▐▌██▒▒▓█  ▄ ░▓█▒  ░ ▒██   ██░   $nocolour"
+echo -e " $error ▒██████▒▒  ░ ██▒▓░▒██░   ▓██░▒██░   ▓██░░▒████▒░▒█░    ░ ████▓▒░   $nocolour"
+echo -e " $error ▒ ▒▓▒ ▒ ░   ██▒▒▒ ░ ▒░   ▒ ▒ ░ ▒░   ▒ ▒ ░░ ▒░ ░ ▒ ░    ░ ▒░▒░▒░    $nocolour"
+echo -e " $error ░ ░▒  ░ ░ ▓██ ░▒░ ░ ░░   ░ ▒░░ ░░   ░ ▒░ ░ ░  ░ ░        ░ ▒ ▒░    $nocolour"
+echo -e " $error ░  ░  ░   ▒ ▒ ░░     ░   ░ ░    ░   ░ ░    ░    ░ ░    ░ ░ ░ ▒     $nocolour"
+echo -e " $error       ░   ░ ░              ░          ░    ░  ░            ░ ░     $nocolour"
+echo -e " $error           ░ ░                                                      $nocolour"
+echo -e " $error                                                                    $nocolour"
+                                                 
