@@ -60,28 +60,28 @@ echo "Hey, wait for a  seconds..."
 sleep 5  
 echo "all Done."
 
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
 
 
-echo -e "$warning                                                    powered by      $nocolour ";
+# echo -e "$warning                                                    powered by      $nocolour ";
 
-echo -e " $error  ███████╗██╗   ██╗███╗   ██╗███╗   ██╗███████╗███████╗ ██████╗      $nocolour";
-echo -e " $error  ██╔════╝╚██╗ ██╔╝████╗  ██║████╗  ██║██╔════╝██╔════╝██╔═══██╗     $nocolour";
-echo -e " $error  ███████╗ ╚████╔╝ ██╔██╗ ██║██╔██╗ ██║█████╗  █████╗  ██║   ██║     $nocolour";
-echo -e " $error  ╚════██║  ╚██╔╝  ██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══╝  ██║   ██║     $nocolour";
-echo -e " $error  ███████║   ██║   ██║ ╚████║██║ ╚████║███████╗██║     ╚██████╔╝     $nocolour";
-echo -e " $error  ╚══════╝   ╚═╝   ╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝      ╚═════╝      $nocolour";
-echo -e " $error                                                          
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
-echo -e "                                                                     ";
+# echo -e " $error  ███████╗██╗   ██╗███╗   ██╗███╗   ██╗███████╗███████╗ ██████╗      $nocolour";
+# echo -e " $error  ██╔════╝╚██╗ ██╔╝████╗  ██║████╗  ██║██╔════╝██╔════╝██╔═══██╗     $nocolour";
+# echo -e " $error  ███████╗ ╚████╔╝ ██╔██╗ ██║██╔██╗ ██║█████╗  █████╗  ██║   ██║     $nocolour";
+# echo -e " $error  ╚════██║  ╚██╔╝  ██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══╝  ██║   ██║     $nocolour";
+# echo -e " $error  ███████║   ██║   ██║ ╚████║██║ ╚████║███████╗██║     ╚██████╔╝     $nocolour";
+# echo -e " $error  ╚══════╝   ╚═╝   ╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝      ╚═════╝      $nocolour";
+# echo -e " $error                                                          
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
+# echo -e "                                                                     ";
 
 
 
