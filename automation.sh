@@ -67,16 +67,15 @@ echo -e "                                                                     ";
 echo -e "                                                                     ";
 
 
-echo -e "$warning                                         powered by $nocolour ";
+echo -e "$warning                                                    powered by      $nocolour ";
 
-echo -e "$success----    ----   --------   ----------   ----    ---- $nocolour";
-echo -e "$success****   ****   **********  ************ ****    **** $nocolour";
-echo -e "$success----  ----   ----    ---- --        -- ----    ---- $nocolour";
-echo -e "$success*********    ***      *** **        ** ****    **** $nocolour";
-echo -e "$success---------    ---      --- --        -- ----    ---- $nocolour";
-echo -e "$success****  ****   ****    **** **        ** ************ $nocolour";
-echo -e "$success----   ----   ----------  ------------ ------------ $nocolour";
-echo -e "$success****    ****   ********   **********   ************ $nocolour";
+echo -e " $error  ███████╗██╗   ██╗███╗   ██╗███╗   ██╗███████╗███████╗ ██████╗      $nocolour";
+echo -e " $error  ██╔════╝╚██╗ ██╔╝████╗  ██║████╗  ██║██╔════╝██╔════╝██╔═══██╗     $nocolour";
+echo -e " $error  ███████╗ ╚████╔╝ ██╔██╗ ██║██╔██╗ ██║█████╗  █████╗  ██║   ██║     $nocolour";
+echo -e " $error  ╚════██║  ╚██╔╝  ██║╚██╗██║██║╚██╗██║██╔══╝  ██╔══╝  ██║   ██║     $nocolour";
+echo -e " $error  ███████║   ██║   ██║ ╚████║██║ ╚████║███████╗██║     ╚██████╔╝     $nocolour";
+echo -e " $error  ╚══════╝   ╚═╝   ╚═╝  ╚═══╝╚═╝  ╚═══╝╚══════╝╚═╝      ╚═════╝      $nocolour";
+echo -e " $error                                                          
 echo -e "                                                                     ";
 echo -e "                                                                     ";
 echo -e "                                                                     ";
