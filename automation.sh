@@ -293,14 +293,14 @@ echo -e "$success Anydesk Installed Successfully  $nocolour"
 
 echo -e "$alert Installing VMware $nocolour" 
 wget http://192.168.100.201/workstation.bundle
-bash vmware.bundle 
+bash workstation.bundle 
 echo -e "$success VMware Installed Successfully  $nocolour" 
 
 
 
 
 echo -e "$alert Installing Cisco Packet Tracer $nocolour" 
-http://192.168.100.201/cpt.deb 
+wget http://192.168.100.201/cpt.deb 
 apt install -y ./cpt.deb
 echo -e "$success Cisco Packet Tracer Installed Successfully  $nocolour" 
 
