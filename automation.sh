@@ -18,7 +18,7 @@ dir_profile="/etc/dconf/profile"
 dir_locks="/etc/dconf/db/local.d/locks"
 
 cur_hostname=$(cat /etc/hostname)
-
+cur_user=$(echo $SUDO_USER)
 gateway="172.16.16.16"
 subnet_mask="16"
 conn_name="Local_Adapter_1"
@@ -181,9 +181,8 @@ dconf update
 fi
 
 echo -e " $alert Locking  Desktop Settings $nocolour "
-chmod 040  ~/.config/dconf/user
-chown root:root /home/desktopuser/.config/dconf/user
-
+chown root:root /home/$cur_user/.config/dconf/user
+chmod 040  /home/$cur_user/.config/dconf/user
 
 
 
