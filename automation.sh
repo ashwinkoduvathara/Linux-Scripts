@@ -28,6 +28,8 @@ iface=$(ip addr show|grep default|grep -i up|grep -vi loopback|tail -1|awk '{pri
 current_ip=$(ip route get 8.8.8.8 | awk -F"src " 'NR==1{split($2,a," ");print a[1]}')
 zone="Asia/Kolkata"
 
+Zabbix_server='172.16.16.16'
+
 check_valid_ip() {
     new_ip="$1"
     echo "$new_ip" | egrep -qE '^[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}$' || return 1
@@ -316,8 +318,18 @@ echo -e "$success Removed firefox Successfully  $nocolour"
 
 
 
+#----------------------------------------------------------#
+#                   Zabbix configuration                   #
+#----------------------------------------------------------#
 
 
+echo -e "$alert Installing Zabbix Agent $nocolour" 
+apt install -y zabbix-agent
+sed -i "s/Server=127.0.0.1/Server=$Zabbix_server/" /etc/zabbix/zabbix_agentd.conf
+sed -i "s/ServerActive=127.0.0.1/ServerActive=$Zabbix_server/" /etc/zabbix/zabbix_agentd.conf
+# sed -i "s/Hostname=Zabbix/Hostname=$(cat /etc/hostname)/" /etc/zabbix/zabbix_agentd.conf
+echo "Hostname=$(cat /etc/hostname)">>/etc/zabbix/zabbix_agentd.conf
+echo "ListenPort=10050">>/etc/zabbix/zabbix_agentd.conf
 
 
 
