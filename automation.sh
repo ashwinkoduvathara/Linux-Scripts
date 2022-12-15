@@ -333,6 +333,24 @@ echo "ListenPort=10050">>/etc/zabbix/zabbix_agentd.conf
 
 
 
+#----------------------------------------------------------#
+#                 Firewall configuration                   #
+#----------------------------------------------------------#
+
+if [  -f `which firewalld` ] ; then
+            apt remove firewalld -y
+
+fi
+
+if [ ! -f `which ufw` ] ; then
+            apt install ufw -y
+            systemctl enable --now ufw 
+            ufw allow 10050/tcp
+else
+        ufw allow 10050/tcp
+fi
+
+
 ENDTIME=$(date +%s)
 echo -e "$success Script executed successfully. Time Elapsed $(($ENDTIME - $STARTTIME)) seconds $nocolour"
 echo -e "$success adios amigo $nocolour"
