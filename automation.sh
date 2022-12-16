@@ -351,6 +351,11 @@ else
 fi
 
 
+
+#----------------------------------------------------------#
+#                    Block Mass Storage                    #
+#----------------------------------------------------------#
+
 ENDTIME=$(date +%s)
 echo -e "$success Script executed successfully. Time Elapsed $(($ENDTIME - $STARTTIME)) seconds $nocolour"
 echo -e "$success adios amigo $nocolour"
