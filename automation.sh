@@ -86,7 +86,8 @@ echo -e "                                                                     ";
 echo -e "                                                                     ";
 
 
-
+# sleep 3
+# clear
 
 
 
@@ -111,30 +112,30 @@ if [ "$interactive_host" = 'y' ]; then
 
 fi
 
-echo -e "$alert Do you want to set static ip address [y/n] $nocolour : "
-read interactive_ip
+# echo -e "$alert Do you want to set static ip address [y/n] $nocolour : "
+# read interactive_ip
 
-if [ "$interactive_ip" = 'y' ]; then
-        if [ -z "$new_ip" ]; then
-            echo -e "$alert Please enter the ip address $nocolour: "
-            read new_ip
-            while ! check_valid_ip "$new_ip"
-            do
-                echo -e "$error Not an valid IP address. Please Re-enter $nocolour: "
-                read new_ip
-            done
-            nmcli connection add con-name $conn_name ifname $iface type ethernet ipv4.method manual ipv4.addresses $new_ip/$subnet_mask ipv4.gateway $gateway ipv4.dns $dns
+# if [ "$interactive_ip" = 'y' ]; then
+#         if [ -z "$new_ip" ]; then
+#             echo -e "$alert Please enter the ip address $nocolour: "
+#             read new_ip
+#             while ! check_valid_ip "$new_ip"
+#             do
+#                 echo -e "$error Not an valid IP address. Please Re-enter $nocolour: "
+#                 read new_ip
+#             done
+#             nmcli connection add con-name $conn_name ifname $iface type ethernet ipv4.method manual ipv4.addresses $new_ip/$subnet_mask ipv4.gateway $gateway ipv4.dns $dns
 
-            Network_Adapter_Status=$?            
+#             Network_Adapter_Status=$?            
             
-        fi
+#         fi
 
-        if [ "$Network_Adapter_Status" -eq "0" ]; then
-            echo -e "$success Network Adapter reset Successfully $nocolour"
-        else
-            echo -e " $error Failed to change IP Address $nocolour "
-        fi
- fi
+#         if [ "$Network_Adapter_Status" -eq "0" ]; then
+#             echo -e "$success Network Adapter reset Successfully $nocolour"
+#         else
+#             echo -e " $error Failed to change IP Address $nocolour "
+#         fi
+#  fi
 
 
 
