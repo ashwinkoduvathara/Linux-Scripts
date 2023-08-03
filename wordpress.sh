@@ -24,8 +24,29 @@ fi
 
 
 
+
+
+
+
+#----------------------------------------------------------#
+#                    User Creation                     #
+#----------------------------------------------------------#
+
 echo -e "$alert Enter your user name : $nocolour "
 read username
+
+password=$(</dev/urandom tr -dc A-Za-z0-9 | head -c8)
+
+if id "$username" &>/dev/null; then
+    echo  -e "$error User '$username' already exists. $nocolour"
+    exit
+else
+    sudo useradd -m -p "$password" "$username"
+    
+fi
+
+
+
 
 
 #----------------------------------------------------------#
@@ -72,7 +93,6 @@ sed -i "s/password_here/$username/g" /var/www/html/$username/wp-config.php
 
 chown -R apache:apache /var/www/html/$username
 chmod -R 755 /var/www/html/$username
-
 
 
 
